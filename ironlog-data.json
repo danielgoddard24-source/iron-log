@@ -3,7 +3,7 @@
     {
       "id": "t1",
       "name": "Push Day",
-      "emoji": "ðª",
+      "emoji": "Ã°ÂÂÂª",
       "color": "#FF4D4D",
       "exercises": [
         {
@@ -27,7 +27,7 @@
     {
       "id": "t2",
       "name": "Pull Day",
-      "emoji": "ðï¸",
+      "emoji": "Ã°ÂÂÂÃ¯Â¸Â",
       "color": "#4D9FFF",
       "exercises": [
         {
@@ -51,7 +51,7 @@
     {
       "id": "t3",
       "name": "Leg Day",
-      "emoji": "🦵",
+      "emoji": "ð¦µ",
       "color": "#4DFF91",
       "exercises": [
         {
@@ -77,5 +77,57 @@
       ]
     }
   ],
-  "logs": []
+  "logs": [
+    {
+      "id": "gyr3yns",
+      "templateId": "t1",
+      "date": "2026-04-28",
+      "exercises": [
+        {
+          "id": "e1",
+          "name": "Bench Press",
+          "sets": [
+            {
+              "weight": "155",
+              "reps": "8"
+            },
+            {
+              "weight": "185",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e2",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e3",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e4",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
