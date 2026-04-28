@@ -1,0 +1,81 @@
+{
+  "templates": [
+    {
+      "id": "t1",
+      "name": "Push Day",
+      "emoji": "💪",
+      "color": "#FF4D4D",
+      "exercises": [
+        {
+          "id": "e1",
+          "name": "Bench Press"
+        },
+        {
+          "id": "e2",
+          "name": "Overhead Press"
+        },
+        {
+          "id": "e3",
+          "name": "Lateral Raises"
+        },
+        {
+          "id": "e4",
+          "name": "Tricep Pushdowns"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "name": "Pull Day",
+      "emoji": "🏋️",
+      "color": "#4D9FFF",
+      "exercises": [
+        {
+          "id": "e5",
+          "name": "Deadlift"
+        },
+        {
+          "id": "e6",
+          "name": "Pull-Ups"
+        },
+        {
+          "id": "e7",
+          "name": "Barbell Row"
+        },
+        {
+          "id": "e8",
+          "name": "Bicep Curls"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "name": "Leg Day",
+      "emoji": "🦵",
+      "color": "#4DFF91",
+      "exercises": [
+        {
+          "id": "e9",
+          "name": "Squat"
+        },
+        {
+          "id": "e10",
+          "name": "Romanian Deadlift"
+        },
+        {
+          "id": "q8hki96",
+          "name": "Lunges"
+        },
+        {
+          "id": "e11",
+          "name": "Leg Press"
+        },
+        {
+          "id": "e12",
+          "name": "Calf Raises"
+        }
+      ]
+    }
+  ],
+  "logs": []
+}
