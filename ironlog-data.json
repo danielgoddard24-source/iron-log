@@ -77,57 +77,5 @@
       ]
     }
   ],
-  "logs": [
-    {
-      "id": "gyr3yns",
-      "templateId": "t1",
-      "date": "2026-04-28",
-      "exercises": [
-        {
-          "id": "e1",
-          "name": "Bench Press",
-          "sets": [
-            {
-              "weight": "155",
-              "reps": "8"
-            },
-            {
-              "weight": "185",
-              "reps": "8"
-            }
-          ]
-        },
-        {
-          "id": "e2",
-          "name": "Overhead Press",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
-        },
-        {
-          "id": "e3",
-          "name": "Lateral Raises",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
-        },
-        {
-          "id": "e4",
-          "name": "Tricep Pushdowns",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "logs": []
 }
