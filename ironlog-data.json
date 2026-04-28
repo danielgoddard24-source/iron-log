@@ -3,7 +3,7 @@
     {
       "id": "t1",
       "name": "Push Day",
-      "emoji": "Ã°ÂÂÂª",
+      "emoji": "ÃÂ°ÃÂÃÂÃÂª",
       "color": "#FF4D4D",
       "exercises": [
         {
@@ -27,7 +27,7 @@
     {
       "id": "t2",
       "name": "Pull Day",
-      "emoji": "Ã°ÂÂÂÃ¯Â¸Â",
+      "emoji": "ÃÂ°ÃÂÃÂÃÂÃÂ¯ÃÂ¸ÃÂ",
       "color": "#4D9FFF",
       "exercises": [
         {
@@ -51,7 +51,7 @@
     {
       "id": "t3",
       "name": "Leg Day",
-      "emoji": "ð¦µ",
+      "emoji": "Ã°ÂÂ¦Âµ",
       "color": "#4DFF91",
       "exercises": [
         {
@@ -77,5 +77,83 @@
       ]
     }
   ],
-  "logs": []
+  "logs": [
+    {
+      "id": "s73g2xf",
+      "templateId": "t3",
+      "date": "2026-04-28",
+      "exercises": [
+        {
+          "id": "e9",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "9"
+            },
+            {
+              "weight": "185",
+              "reps": "8"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            },
+            {
+              "weight": "225",
+              "reps": "4"
+            }
+          ]
+        },
+        {
+          "id": "e10",
+          "name": "Romanian Deadlift",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "q8hki96",
+          "name": "Lunges",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "16"
+            },
+            {
+              "weight": "50",
+              "reps": "16"
+            },
+            {
+              "weight": "70",
+              "reps": "16"
+            }
+          ]
+        },
+        {
+          "id": "e11",
+          "name": "Leg Press",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e12",
+          "name": "Calf Raises",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
