@@ -91,24 +91,6 @@
   ],
   "logs": [
     {
-      "id": "64nk86f",
-      "templateId": "t1",
-      "date": "2026-04-29",
-      "exercises": [
-        {
-          "id": "k9k3lfm",
-          "name": "Tricep Extensions - Dumbbell",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
-        }
-      ],
-      "notes": ""
-    },
-    {
       "id": "yaeqizr",
       "templateId": "t1",
       "date": "2026-04-29",
