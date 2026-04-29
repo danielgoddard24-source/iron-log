@@ -199,12 +199,7 @@
         {
           "id": "e10",
           "name": "Romanian Deadlift",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
+          "sets": []
         },
         {
           "id": "q8hki96",
@@ -227,24 +222,15 @@
         {
           "id": "e11",
           "name": "Leg Press",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
+          "sets": []
         },
         {
           "id": "e12",
           "name": "Calf Raises",
-          "sets": [
-            {
-              "weight": "",
-              "reps": ""
-            }
-          ]
+          "sets": []
         }
-      ]
+      ],
+      "notes": ""
     }
   ]
 }
