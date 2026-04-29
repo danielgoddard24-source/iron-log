@@ -96,6 +96,9 @@
     .reorder-btn:active { color: var(--text); background: var(--border); }
     .reorder-btn:disabled { opacity: 0.2; pointer-events: none; }
     .reorder-btns { display: flex; flex-direction: column; gap: 1px; flex-shrink: 0; }
+    .notes-area { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; outline: none; resize: none; min-height: 80px; line-height: 1.5; -webkit-appearance: none; }
+    .notes-area:focus { border-color: var(--accent); }
+    .notes-display { font-size: 13px; color: #AAA; line-height: 1.6; background: var(--surface2); border-radius: 8px; padding: 10px 12px; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; }
     /* Setup */
     .setup { max-width: 430px; margin: 0 auto; padding: max(env(safe-area-inset-top,44px),44px) 24px 48px; min-height: 100vh; display: flex; flex-direction: column; }
     .setup-logo { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; margin-bottom: 2px; }
@@ -143,7 +146,8 @@
       throw new Error(`GitHub ${res.status}: ${txt}`);
     }
     const json = await res.json();
-    const content = JSON.parse(atob(json.content.replace(/\n/g,"")));
+    const bytes = Uint8Array.from(atob(json.content.replace(/\n/g,"")), c => c.charCodeAt(0));
+    const content = JSON.parse(new TextDecoder().decode(bytes));
     return { content, sha: json.sha };
   }
 
@@ -153,7 +157,7 @@
       headers: { Authorization:`token ${token}`, "Content-Type":"application/json", Accept:"application/vnd.github.v3+json" },
       body: JSON.stringify({
         message: `ironlog: save ${new Date().toISOString().slice(0,10)}`,
-        content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
+        content: btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(data, null, 2)))),
         ...(sha ? { sha } : {})
       })
     });
@@ -300,6 +304,7 @@
     const tmpl = templates.find(t=>t.id===selId)||templates[0];
     const initEx = () => editLog ? editLog.exercises : (tmpl?.exercises||[]).map(ex=>({...ex,sets:[{weight:"",reps:""}]}));
     const [exercises, setExercises] = useState(initEx);
+    const [notes, setNotes] = useState(editLog?.notes||"");
 
     const selectTemplate = id => { setSelId(id); const t=templates.find(x=>x.id===id); setExercises((t?.exercises||[]).map(ex=>({...ex,sets:[{weight:"",reps:""}]}))); };
     const updateSet = (ei,si,f,v) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.map((s,j)=>j!==si?s:{...s,[f]:v})}));
@@ -348,9 +353,14 @@
             </div>
           ))}
           <div className="divider"/>
+          <div className="form-group" style={{marginBottom:0}}>
+            <label className="form-label">Notes</label>
+            <textarea className="notes-area" placeholder="How did it feel? Any PRs? Notes for next time…" value={notes} onChange={e=>setNotes(e.target.value)}/>
+          </div>
+          <div className="divider"/>
           <div className="row-actions">
             <button className="btn btn-ghost" style={{flex:1}} onClick={onClose}>Cancel</button>
-            <button className="btn" style={{flex:1}} onClick={()=>onSave({id:editLog?.id||uid(),templateId:selId,date,exercises})}>Save Workout</button>
+            <button className="btn" style={{flex:1}} onClick={()=>onSave({id:editLog?.id||uid(),templateId:selId,date,exercises,notes})}>Save Workout</button>
           </div>
         </div>
       </div>
@@ -541,6 +551,10 @@
                                 </div>
                               </div>
                             ))}
+                            {log.notes ? <>
+                              <div style={{fontFamily:"DM Mono",fontSize:10,letterSpacing:1,textTransform:"uppercase",color:"var(--muted)"}}>Notes</div>
+                              <div className="notes-display">{log.notes}</div>
+                            </> : null}
                             <div className="row-actions" style={{marginTop:4}}>
                               <button className="btn btn-ghost btn-sm" onClick={()=>setWorkoutModal({templateId:log.templateId,editLog:log})}>Edit</button>
                               <button className="btn btn-danger btn-sm" onClick={()=>{saveLogs(logs.filter(l=>l.id!==log.id));setViewLog(null);}}>Delete</button>
