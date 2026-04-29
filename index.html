@@ -99,6 +99,20 @@
     .notes-area { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; outline: none; resize: none; min-height: 80px; line-height: 1.5; -webkit-appearance: none; }
     .notes-area:focus { border-color: var(--accent); }
     .notes-display { font-size: 13px; color: #AAA; line-height: 1.6; background: var(--surface2); border-radius: 8px; padding: 10px 12px; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; }
+    /* Full-screen modal */
+    .screen-overlay { position: fixed; inset: 0; background: var(--bg); z-index: 200; display: flex; flex-direction: column; animation: screenIn 0.2s ease; overflow: hidden; }
+    @keyframes screenIn { from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)} }
+    .screen-header { padding: max(env(safe-area-inset-top,44px),44px) 20px 0; border-bottom: 1px solid var(--border); background: var(--bg); flex-shrink: 0; }
+    .screen-header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .screen-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; flex: 1; }
+    .screen-body { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: calc(80px + env(safe-area-inset-bottom,0px)); -webkit-overflow-scrolling: touch; }
+    .screen-footer { padding: 12px 20px calc(max(env(safe-area-inset-bottom,0px),16px) + 12px); border-top: 1px solid var(--border); background: var(--bg); flex-shrink: 0; display: flex; gap: 8px; }
+    /* Custom picker */
+    .picker-list { display: flex; flex-direction: column; gap: 6px; }
+    .picker-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px; -webkit-tap-highlight-color: transparent; transition: border-color 0.1s; }
+    .picker-item:active { border-color: var(--accent); }
+    .picker-item-name { flex: 1; }
+    .picker-item-custom { color: var(--muted); font-style: italic; }
     /* Setup */
     .setup { max-width: 430px; margin: 0 auto; padding: max(env(safe-area-inset-top,44px),44px) 24px 48px; min-height: 100vh; display: flex; flex-direction: column; }
     .setup-logo { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; margin-bottom: 2px; }
@@ -133,6 +147,7 @@
   const uid = () => Math.random().toString(36).slice(2,9);
   const LS_TOKEN = "ironlog_gh_token";
   const LS_REPO  = "ironlog_gh_repo";
+  const LS_DRAFT = "ironlog_draft";
   const DATA_FILE = "ironlog-data.json";
 
   // ── GitHub API ─────────────────────────────────────────────────────────
@@ -296,103 +311,125 @@
     );
   }
 
+  // ── Template Picker Screen ─────────────────────────────────────────────
+  function TemplatePicker({ templates, onPick, onClose }) {
+    return (
+      <div className="screen-overlay">
+        <div className="screen-header">
+          <div className="screen-header-top">
+            <button onClick={onClose} className="btn btn-ghost btn-sm">✕ Cancel</button>
+            <span className="screen-title">CHOOSE TEMPLATE</span>
+          </div>
+        </div>
+        <div className="screen-body">
+          <div style={{color:"var(--muted)",fontSize:13,marginBottom:16}}>Which workout are you doing today?</div>
+          <div className="picker-list">
+            {templates.map(t=>(
+              <div className="picker-item" key={t.id} onClick={()=>onPick(t.id)} style={{padding:"14px 12px"}}>
+                <span style={{fontSize:22}}>{t.emoji}</span>
+                <div style={{flex:1}}>
+                  <div style={{fontWeight:600,fontSize:15}}>{t.name}</div>
+                  <div style={{fontSize:12,color:"var(--muted)",marginTop:2}}>{t.exercises.length} exercises</div>
+                </div>
+                <div className="color-dot" style={{background:t.color,width:10,height:10}}/>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // ── Workout Modal ──────────────────────────────────────────────────────
-  function WorkoutModal({ templates, initialTemplateId, editLog, onSave, onClose }) {
+  function WorkoutModal({ templates, templateId, editLog, onSave, onClose }) {
     const today = new Date().toISOString().slice(0,10);
-    const [selId,     setSelId]     = useState(editLog?.templateId||initialTemplateId);
-    const [date,      setDate]      = useState(editLog?.date||today);
-    const [exercises, setExercises] = useState(editLog?.exercises||[]);
-    const [notes,     setNotes]     = useState(editLog?.notes||"");
-    // picker state: selected dropdown value or "" for custom
-    const [pickSel,   setPickSel]   = useState("__select__");
-    const [customName,setCustomName]= useState("");
+    const tmpl  = templates.find(t=>t.id===templateId)||templates[0];
 
-    const tmpl = templates.find(t=>t.id===selId)||templates[0];
-
-    const selectTemplate = id => {
-      setSelId(id);
-      setExercises([]);
-      setPickSel("__select__");
-      setCustomName("");
+    // Initialise from draft (autosave) or editLog or fresh
+    const initState = () => {
+      if (editLog) return { date: editLog.date, exercises: editLog.exercises, notes: editLog.notes||"" };
+      try {
+        const draft = JSON.parse(localStorage.getItem(LS_DRAFT)||"null");
+        if (draft && draft.templateId === templateId) return { date: draft.date||today, exercises: draft.exercises||[], notes: draft.notes||"" };
+      } catch {}
+      return { date: today, exercises: [], notes: "" };
     };
 
-    // exercises already added (by id or custom name)
-    const addedIds = new Set(exercises.map(e=>e.id));
+    const init = initState();
+    const [date,       setDate]       = useState(init.date);
+    const [exercises,  setExercises]  = useState(init.exercises);
+    const [notes,      setNotes]      = useState(init.notes);
+    const [customName, setCustomName] = useState("");
+    const [showCustom, setShowCustom] = useState(false);
+    const [draftSaved, setDraftSaved] = useState(false);
 
-    const addExercise = () => {
-      if (pickSel === "__select__") return;
-      if (pickSel === "__custom__") {
-        const name = customName.trim();
-        if (!name) return;
-        setExercises(p=>[...p, {id:uid(), name, sets:[{weight:"",reps:""}]}]);
-        setCustomName(""); setPickSel("__select__");
-      } else {
-        const src = tmpl.exercises.find(e=>e.id===pickSel);
-        if (!src) return;
-        setExercises(p=>[...p, {...src, id:src.id+"-"+uid(), sets:[{weight:"",reps:""}]}]);
-        setPickSel("__select__");
-      }
+    // Autosave draft to localStorage on every change
+    useEffect(() => {
+      if (editLog) return; // don't autosave when editing existing log
+      const draft = { templateId, date, exercises, notes, savedAt: Date.now() };
+      localStorage.setItem(LS_DRAFT, JSON.stringify(draft));
+      setDraftSaved(true);
+      const t = setTimeout(()=>setDraftSaved(false), 1200);
+      return ()=>clearTimeout(t);
+    }, [date, exercises, notes]);
+
+    const clearDraft = () => localStorage.removeItem(LS_DRAFT);
+
+    const addExercise = (ex) => setExercises(p=>[...p, {...ex, id:ex.id+"-"+uid(), sets:[{weight:"",reps:""}]}]);
+    const addCustomExercise = () => {
+      const name = customName.trim(); if(!name) return;
+      setExercises(p=>[...p, {id:uid(), name, sets:[{weight:"",reps:""}]}]);
+      setCustomName(""); setShowCustom(false);
     };
-
     const removeExercise = ei => setExercises(p=>p.filter((_,i)=>i!==ei));
     const updateSet = (ei,si,f,v) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.map((s,j)=>j!==si?s:{...s,[f]:v})}));
     const addSet    = ei => setExercises(p=>p.map((ex,i)=>{ if(i!==ei)return ex; const l=ex.sets[ex.sets.length-1]||{weight:"",reps:""}; return {...ex,sets:[...ex.sets,{...l}]}; }));
     const removeSet = (ei,si) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.filter((_,j)=>j!==si)}));
 
+    const handleSave = () => {
+      clearDraft();
+      onSave({id:editLog?.id||uid(), templateId, date, exercises, notes});
+    };
+
+    const handleCancel = () => {
+      clearDraft();
+      onClose();
+    };
+
     return (
-      <div className="modal-overlay" onClick={onClose}>
-        <div className="modal" onClick={e=>e.stopPropagation()}>
-          <div className="modal-handle"/>
-          <div className="modal-title">{editLog?"EDIT WORKOUT":"LOG WORKOUT"}</div>
-          <div className="form-row">
-            <div className="form-group">
-              <label className="form-label">Template</label>
-              <select className="form-input" value={selId} onChange={e=>selectTemplate(e.target.value)}>
-                {templates.map(t=><option key={t.id} value={t.id}>{t.emoji} {t.name}</option>)}
-              </select>
-            </div>
-            <div className="form-group" style={{flex:"0 0 148px"}}>
-              <label className="form-label">Date</label>
-              <input className="form-input" type="date" value={date} onChange={e=>setDate(e.target.value)}/>
-            </div>
+      <div className="screen-overlay">
+        {/* Header */}
+        <div className="screen-header">
+          <div className="screen-header-top">
+            <button onClick={handleCancel} className="btn btn-ghost btn-sm">✕ Cancel</button>
+            <span className="screen-title">{editLog?"EDIT WORKOUT":"LOG WORKOUT"}</span>
+            {draftSaved && !editLog && (
+              <span style={{fontFamily:"DM Mono",fontSize:10,color:"#4DFF91",letterSpacing:0.5}}>draft saved</span>
+            )}
+          </div>
+          {/* Locked template badge */}
+          <div style={{display:"flex",alignItems:"center",gap:8,paddingBottom:12}}>
+            <span style={{fontSize:18}}>{tmpl?.emoji}</span>
+            <span style={{fontWeight:600,fontSize:14}}>{tmpl?.name}</span>
+            <div className="color-dot" style={{background:tmpl?.color||"#FF4D4D"}}/>
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="screen-body">
+          {/* Date row */}
+          <div className="form-group">
+            <label className="form-label">Date</label>
+            <input className="form-input" type="date" value={date} onChange={e=>setDate(e.target.value)}/>
           </div>
 
           <div className="divider"/>
 
-          {/* Exercise picker */}
-          <div style={{marginBottom:16}}>
-            <label className="form-label">Add Exercise</label>
-            <div className="form-row" style={{alignItems:"flex-end",marginBottom: pickSel==="__custom__" ? 8 : 0}}>
-              <div className="form-group" style={{marginBottom:0}}>
-                <select className="form-input" value={pickSel} onChange={e=>{ setPickSel(e.target.value); setCustomName(""); }}>
-                  <option value="__select__">— pick an exercise —</option>
-                  {(tmpl?.exercises||[]).map(ex=>(
-                    <option key={ex.id} value={ex.id}>{ex.name}</option>
-                  ))}
-                  <option value="__custom__">✏️ Custom / variation…</option>
-                </select>
-              </div>
-              <button
-                className="btn btn-green btn-sm"
-                style={{height:42,flexShrink:0,opacity:(pickSel==="__select__"||(pickSel==="__custom__"&&!customName.trim()))?"0.4":"1"}}
-                onClick={addExercise}
-              >+ Add</button>
-            </div>
-            {pickSel==="__custom__" && (
-              <input
-                className="form-input"
-                placeholder="e.g. Dumbbell Bench Press"
-                value={customName}
-                onChange={e=>setCustomName(e.target.value)}
-                onKeyDown={e=>e.key==="Enter"&&addExercise()}
-                autoFocus
-              />
-            )}
-          </div>
-
           {/* Added exercises */}
           {exercises.length===0 && (
-            <div style={{textAlign:"center",padding:"20px 0",color:"var(--muted)",fontSize:13}}>No exercises added yet</div>
+            <div style={{textAlign:"center",padding:"24px 0 8px",color:"var(--muted)",fontSize:13}}>
+              No exercises added yet — pick one below
+            </div>
           )}
           {exercises.map((ex,ei)=>(
             <div key={ex.id} style={{marginBottom:18}}>
@@ -400,7 +437,7 @@
                 <div className="color-dot" style={{background:tmpl?.color||"#FF4D4D"}}/>
                 <span style={{fontWeight:600,fontSize:14,flex:1}}>{ex.name}</span>
                 <button className="btn btn-green btn-sm" onClick={()=>addSet(ei)}>+ Set</button>
-                <button onClick={()=>removeExercise(ei)} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:20,lineHeight:1,padding:"0 2px"}}>×</button>
+                <button onClick={()=>removeExercise(ei)} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:20,lineHeight:1,padding:"0 4px"}}>×</button>
               </div>
               <div style={{display:"flex",gap:8,marginBottom:4,paddingLeft:16}}>
                 <span className="set-label" style={{flex:"0 0 24px"}}>#</span>
@@ -420,15 +457,47 @@
           ))}
 
           <div className="divider"/>
+
+          {/* Exercise picker */}
+          <div style={{marginBottom:16}}>
+            <label className="form-label">Add Exercise</label>
+            <div className="picker-list">
+              {(tmpl?.exercises||[]).map(ex=>(
+                <div className="picker-item" key={ex.id} onClick={()=>addExercise(ex)}>
+                  <div className="color-dot" style={{background:tmpl?.color||"#FF4D4D"}}/>
+                  <span className="picker-item-name">{ex.name}</span>
+                  <span style={{color:"var(--accent)",fontSize:18,lineHeight:1}}>+</span>
+                </div>
+              ))}
+              {!showCustom ? (
+                <div className="picker-item" onClick={()=>setShowCustom(true)}>
+                  <span style={{fontSize:14,color:"var(--muted)"}}>✏️</span>
+                  <span className="picker-item-name picker-item-custom">Custom / variation…</span>
+                  <span style={{color:"var(--accent)",fontSize:18,lineHeight:1}}>+</span>
+                </div>
+              ) : (
+                <div style={{background:"var(--surface2)",border:"1px solid var(--accent)",borderRadius:8,padding:10,display:"flex",gap:8,alignItems:"center"}}>
+                  <input className="form-input" style={{marginBottom:0,flex:1,fontSize:14,padding:"7px 10px"}} placeholder="e.g. Dumbbell Bench Press" value={customName} onChange={e=>setCustomName(e.target.value)} onKeyDown={e=>{ if(e.key==="Enter")addCustomExercise(); if(e.key==="Escape"){setShowCustom(false);setCustomName("");} }} autoFocus/>
+                  <button className="btn btn-green btn-sm" style={{flexShrink:0}} onClick={addCustomExercise}>Add</button>
+                  <button onClick={()=>{setShowCustom(false);setCustomName("");}} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 2px"}}>×</button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="divider"/>
+
+          {/* Notes */}
           <div className="form-group" style={{marginBottom:0}}>
             <label className="form-label">Notes</label>
             <textarea className="notes-area" placeholder="How did it feel? Any PRs? Notes for next time…" value={notes} onChange={e=>setNotes(e.target.value)}/>
           </div>
-          <div className="divider"/>
-          <div className="row-actions">
-            <button className="btn btn-ghost" style={{flex:1}} onClick={onClose}>Cancel</button>
-            <button className="btn" style={{flex:1}} onClick={()=>onSave({id:editLog?.id||uid(),templateId:selId,date,exercises,notes})}>Save Workout</button>
-          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="screen-footer">
+          <button className="btn btn-ghost" style={{flex:1}} onClick={handleCancel}>Cancel</button>
+          <button className="btn" style={{flex:2}} onClick={handleSave}>Save Workout</button>
         </div>
       </div>
     );
@@ -457,10 +526,19 @@
     const [syncStatus, setSyncStatus] = useState("loading");
     const [syncError,  setSyncError]  = useState("");
 
-    const [tab,           setTab]           = useState("log");
-    const [templateModal, setTemplateModal] = useState(null);
-    const [workoutModal,  setWorkoutModal]  = useState(null);
-    const [viewLog,       setViewLog]       = useState(null);
+    const [tab,             setTab]             = useState("log");
+    const [templateModal,   setTemplateModal]   = useState(null);
+    const [templatePicker,  setTemplatePicker]  = useState(false);
+    const [workoutModal,    setWorkoutModal]    = useState(null); // {templateId, editLog?}
+    const [viewLog,         setViewLog]         = useState(null);
+
+    // Check for an autosaved draft on load and offer to resume
+    const [resumeDraft, setResumeDraft] = useState(()=>{
+      try {
+        const d = JSON.parse(localStorage.getItem(LS_DRAFT)||"null");
+        return (d && d.exercises && d.exercises.length > 0) ? d : null;
+      } catch { return null; }
+    });
 
     // Load on mount / after setup
     const loadFromGitHub = useCallback(() => {
@@ -503,7 +581,9 @@
       const updated = workout.id && logs.find(l=>l.id===workout.id)
         ? logs.map(l=>l.id===workout.id?workout:l)
         : [workout,...logs];
-      saveLogs(updated); setWorkoutModal(null);
+      saveLogs(updated);
+      setWorkoutModal(null);
+      setResumeDraft(null);
     };
 
     const grouped    = logs.reduce((a,l)=>{ (a[l.date]||(a[l.date]=[])).push(l); return a; }, {});
@@ -671,12 +751,26 @@
 
           </div>
 
-          {tab==="log"       && templates.length>0 && <button className="fab" onClick={()=>setWorkoutModal({templateId:templates[0].id})}>+</button>}
+          {tab==="log"       && templates.length>0 && <button className="fab" onClick={()=>setTemplatePicker(true)}>+</button>}
           {tab==="templates"                        && <button className="fab" onClick={()=>setTemplateModal({mode:"new"})}>+</button>}
         </div>
 
-        {templateModal && <TemplateModal initial={templateModal.data} onSave={handleSaveTemplate} onClose={()=>setTemplateModal(null)}/>}
-        {workoutModal  && <WorkoutModal  templates={templates} initialTemplateId={workoutModal.templateId} editLog={workoutModal.editLog} onSave={handleSaveWorkout} onClose={()=>setWorkoutModal(null)}/>}
+        {/* Resume draft banner */}
+        {resumeDraft && !workoutModal && (
+          <div style={{position:"fixed",bottom:"calc(90px + env(safe-area-inset-bottom,0px))",left:"50%",transform:"translateX(-50%)",width:"calc(100% - 40px)",maxWidth:390,background:"#1A2A1A",border:"1px solid #2A5A2A",borderRadius:12,padding:"12px 14px",zIndex:150,display:"flex",alignItems:"center",gap:10}}>
+            <span style={{fontSize:18}}>💾</span>
+            <div style={{flex:1}}>
+              <div style={{fontSize:13,fontWeight:600,color:"#4DFF91"}}>Draft workout saved</div>
+              <div style={{fontSize:11,color:"var(--muted)"}}>You have an unfinished workout</div>
+            </div>
+            <button className="btn btn-green btn-sm" onClick={()=>{ setWorkoutModal({templateId:resumeDraft.templateId}); setResumeDraft(null); }}>Resume</button>
+            <button onClick={()=>{ localStorage.removeItem(LS_DRAFT); setResumeDraft(null); }} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:18,lineHeight:1}}>×</button>
+          </div>
+        )}
+
+        {templateModal   && <TemplateModal initial={templateModal.data} onSave={handleSaveTemplate} onClose={()=>setTemplateModal(null)}/>}
+        {templatePicker  && <TemplatePicker templates={templates} onPick={id=>{ setTemplatePicker(false); setWorkoutModal({templateId:id}); }} onClose={()=>setTemplatePicker(false)}/>}
+        {workoutModal    && <WorkoutModal templates={templates} templateId={workoutModal.templateId} editLog={workoutModal.editLog} onSave={handleSaveWorkout} onClose={()=>{ setWorkoutModal(null); }}/>}
       </>
     );
   }
