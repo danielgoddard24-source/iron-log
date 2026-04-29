@@ -3,7 +3,7 @@
     {
       "id": "t1",
       "name": "Push Day",
-      "emoji": "ÃÂ°ÃÂÃÂÃÂª",
+      "emoji": "ÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂª",
       "color": "#FF4D4D",
       "exercises": [
         {
@@ -27,7 +27,7 @@
     {
       "id": "t2",
       "name": "Pull Day",
-      "emoji": "ÃÂ°ÃÂÃÂÃÂÃÂ¯ÃÂ¸ÃÂ",
+      "emoji": "ÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¯ÃÂÃÂ¸ÃÂÃÂ",
       "color": "#4D9FFF",
       "exercises": [
         {
@@ -51,7 +51,7 @@
     {
       "id": "t3",
       "name": "Leg Day",
-      "emoji": "Ã°ÂÂ¦Âµ",
+      "emoji": "ÃÂ°ÃÂÃÂ¦ÃÂµ",
       "color": "#4DFF91",
       "exercises": [
         {
@@ -78,6 +78,97 @@
     }
   ],
   "logs": [
+    {
+      "id": "yaeqizr",
+      "templateId": "t1",
+      "date": "2026-04-29",
+      "exercises": [
+        {
+          "id": "e1",
+          "name": "Bench Press",
+          "sets": [
+            {
+              "weight": "110",
+              "reps": "12"
+            },
+            {
+              "weight": "150",
+              "reps": "8"
+            },
+            {
+              "weight": "160",
+              "reps": "3"
+            },
+            {
+              "weight": "140",
+              "reps": "8"
+            },
+            {
+              "weight": "140",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "e2",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "80",
+              "reps": "10"
+            },
+            {
+              "weight": "90",
+              "reps": "10"
+            },
+            {
+              "weight": "90",
+              "reps": "12"
+            }
+          ]
+        },
+        {
+          "id": "e3",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "20",
+              "reps": "10"
+            },
+            {
+              "weight": "20",
+              "reps": "10"
+            },
+            {
+              "weight": "20",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "e4",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "164",
+              "reps": "12"
+            },
+            {
+              "weight": "184",
+              "reps": "12"
+            },
+            {
+              "weight": "184",
+              "reps": "12"
+            },
+            {
+              "weight": "198",
+              "reps": "12"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "s73g2xf",
       "templateId": "t3",
