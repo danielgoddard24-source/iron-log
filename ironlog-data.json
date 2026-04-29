@@ -103,6 +103,18 @@
           "name": "Bike"
         }
       ]
+    },
+    {
+      "id": "j888vkv",
+      "name": "Core",
+      "emoji": "🫠",
+      "color": "#4D9FFF",
+      "exercises": [
+        {
+          "id": "r1j76ok",
+          "name": "Sit Up"
+        }
+      ]
     }
   ],
   "logs": [
