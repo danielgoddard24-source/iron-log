@@ -299,14 +299,42 @@
   // ── Workout Modal ──────────────────────────────────────────────────────
   function WorkoutModal({ templates, initialTemplateId, editLog, onSave, onClose }) {
     const today = new Date().toISOString().slice(0,10);
-    const [selId, setSelId] = useState(editLog?.templateId||initialTemplateId);
-    const [date,  setDate]  = useState(editLog?.date||today);
-    const tmpl = templates.find(t=>t.id===selId)||templates[0];
-    const initEx = () => editLog ? editLog.exercises : (tmpl?.exercises||[]).map(ex=>({...ex,sets:[{weight:"",reps:""}]}));
-    const [exercises, setExercises] = useState(initEx);
-    const [notes, setNotes] = useState(editLog?.notes||"");
+    const [selId,     setSelId]     = useState(editLog?.templateId||initialTemplateId);
+    const [date,      setDate]      = useState(editLog?.date||today);
+    const [exercises, setExercises] = useState(editLog?.exercises||[]);
+    const [notes,     setNotes]     = useState(editLog?.notes||"");
+    // picker state: selected dropdown value or "" for custom
+    const [pickSel,   setPickSel]   = useState("__select__");
+    const [customName,setCustomName]= useState("");
 
-    const selectTemplate = id => { setSelId(id); const t=templates.find(x=>x.id===id); setExercises((t?.exercises||[]).map(ex=>({...ex,sets:[{weight:"",reps:""}]}))); };
+    const tmpl = templates.find(t=>t.id===selId)||templates[0];
+
+    const selectTemplate = id => {
+      setSelId(id);
+      setExercises([]);
+      setPickSel("__select__");
+      setCustomName("");
+    };
+
+    // exercises already added (by id or custom name)
+    const addedIds = new Set(exercises.map(e=>e.id));
+
+    const addExercise = () => {
+      if (pickSel === "__select__") return;
+      if (pickSel === "__custom__") {
+        const name = customName.trim();
+        if (!name) return;
+        setExercises(p=>[...p, {id:uid(), name, sets:[{weight:"",reps:""}]}]);
+        setCustomName(""); setPickSel("__select__");
+      } else {
+        const src = tmpl.exercises.find(e=>e.id===pickSel);
+        if (!src) return;
+        setExercises(p=>[...p, {...src, id:src.id+"-"+uid(), sets:[{weight:"",reps:""}]}]);
+        setPickSel("__select__");
+      }
+    };
+
+    const removeExercise = ei => setExercises(p=>p.filter((_,i)=>i!==ei));
     const updateSet = (ei,si,f,v) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.map((s,j)=>j!==si?s:{...s,[f]:v})}));
     const addSet    = ei => setExercises(p=>p.map((ex,i)=>{ if(i!==ei)return ex; const l=ex.sets[ex.sets.length-1]||{weight:"",reps:""}; return {...ex,sets:[...ex.sets,{...l}]}; }));
     const removeSet = (ei,si) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.filter((_,j)=>j!==si)}));
@@ -328,13 +356,51 @@
               <input className="form-input" type="date" value={date} onChange={e=>setDate(e.target.value)}/>
             </div>
           </div>
+
           <div className="divider"/>
+
+          {/* Exercise picker */}
+          <div style={{marginBottom:16}}>
+            <label className="form-label">Add Exercise</label>
+            <div className="form-row" style={{alignItems:"flex-end",marginBottom: pickSel==="__custom__" ? 8 : 0}}>
+              <div className="form-group" style={{marginBottom:0}}>
+                <select className="form-input" value={pickSel} onChange={e=>{ setPickSel(e.target.value); setCustomName(""); }}>
+                  <option value="__select__">— pick an exercise —</option>
+                  {(tmpl?.exercises||[]).map(ex=>(
+                    <option key={ex.id} value={ex.id}>{ex.name}</option>
+                  ))}
+                  <option value="__custom__">✏️ Custom / variation…</option>
+                </select>
+              </div>
+              <button
+                className="btn btn-green btn-sm"
+                style={{height:42,flexShrink:0,opacity:(pickSel==="__select__"||(pickSel==="__custom__"&&!customName.trim()))?"0.4":"1"}}
+                onClick={addExercise}
+              >+ Add</button>
+            </div>
+            {pickSel==="__custom__" && (
+              <input
+                className="form-input"
+                placeholder="e.g. Dumbbell Bench Press"
+                value={customName}
+                onChange={e=>setCustomName(e.target.value)}
+                onKeyDown={e=>e.key==="Enter"&&addExercise()}
+                autoFocus
+              />
+            )}
+          </div>
+
+          {/* Added exercises */}
+          {exercises.length===0 && (
+            <div style={{textAlign:"center",padding:"20px 0",color:"var(--muted)",fontSize:13}}>No exercises added yet</div>
+          )}
           {exercises.map((ex,ei)=>(
             <div key={ex.id} style={{marginBottom:18}}>
               <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:8}}>
                 <div className="color-dot" style={{background:tmpl?.color||"#FF4D4D"}}/>
                 <span style={{fontWeight:600,fontSize:14,flex:1}}>{ex.name}</span>
                 <button className="btn btn-green btn-sm" onClick={()=>addSet(ei)}>+ Set</button>
+                <button onClick={()=>removeExercise(ei)} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:20,lineHeight:1,padding:"0 2px"}}>×</button>
               </div>
               <div style={{display:"flex",gap:8,marginBottom:4,paddingLeft:16}}>
                 <span className="set-label" style={{flex:"0 0 24px"}}>#</span>
@@ -352,6 +418,7 @@
               ))}
             </div>
           ))}
+
           <div className="divider"/>
           <div className="form-group" style={{marginBottom:0}}>
             <label className="form-label">Notes</label>
