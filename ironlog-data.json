@@ -113,6 +113,11 @@
       "color": "#FFFFFF",
       "exercises": [
         {
+          "id": "5tbould",
+          "name": "Push Ups",
+          "metric": "weight"
+        },
+        {
           "id": "r1j76ok",
           "name": "Sit Up"
         },
