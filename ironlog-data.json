@@ -125,14 +125,6 @@
           "name": "V Sit"
         },
         {
-          "id": "jv743ym",
-          "name": "Plank"
-        },
-        {
-          "id": "x5a315w",
-          "name": "Side Plank"
-        },
-        {
           "id": "yvezjdh",
           "name": "Side Crunch"
         },
@@ -147,6 +139,16 @@
         {
           "id": "77sp9ll",
           "name": "Superman"
+        },
+        {
+          "id": "r2sawkd",
+          "name": "Plank",
+          "metric": "time"
+        },
+        {
+          "id": "ok9ah2k",
+          "name": "Side Plank",
+          "metric": "time"
         }
       ]
     }
