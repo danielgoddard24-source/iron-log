@@ -95,12 +95,14 @@
       "color": "#FFD34D",
       "exercises": [
         {
-          "id": "4co328a",
-          "name": "Run"
+          "id": "12srsd5",
+          "name": "Run",
+          "metric": "time"
         },
         {
-          "id": "8yibqxr",
-          "name": "Bike"
+          "id": "delfgs3",
+          "name": "Bike",
+          "metric": "time"
         }
       ]
     },
