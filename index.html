@@ -113,6 +113,9 @@
     .picker-item:active { border-color: var(--accent); }
     .picker-item-name { flex: 1; }
     .picker-item-custom { color: var(--muted); font-style: italic; }
+    .metric-toggle { display: flex; gap: 4px; }
+    .metric-btn { flex: 1; padding: 5px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface2); color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent; transition: all 0.1s; }
+    .metric-btn.active { background: var(--surface); color: var(--text); border-color: #444; }
     /* Setup */
     .setup { max-width: 430px; margin: 0 auto; padding: max(env(safe-area-inset-top,44px),44px) 24px 48px; min-height: 100vh; display: flex; flex-direction: column; }
     .setup-logo { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; margin-bottom: 2px; }
@@ -253,8 +256,9 @@
     const [color,     setColor]     = useState(initial?.color||COLORS[0]);
     const [exercises, setExercises] = useState(initial?.exercises||[]);
     const [newEx,     setNewEx]     = useState("");
+    const [newMetric, setNewMetric] = useState("weight"); // 'weight' | 'time'
 
-    const addExercise = () => { const t=newEx.trim(); if(!t) return; setExercises([...exercises,{id:uid(),name:t}]); setNewEx(""); };
+    const addExercise = () => { const t=newEx.trim(); if(!t) return; setExercises([...exercises,{id:uid(),name:t,metric:newMetric}]); setNewEx(""); setNewMetric("weight"); };
     const moveExercise = (i,dir) => {
       const j=i+dir; if(j<0||j>=exercises.length) return;
       const n=[...exercises]; [n[i],n[j]]=[n[j],n[i]]; setExercises(n);
@@ -287,6 +291,7 @@
                 <span className="exercise-num">{i+1}</span>
                 <div className="color-dot" style={{background:color}}/>
                 <span className="exercise-row-name">{ex.name}</span>
+                <span style={{fontFamily:"DM Mono",fontSize:9,color:ex.metric==="time"?"#4D9FFF":"var(--muted)",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:4,padding:"1px 5px",letterSpacing:0.5}}>{ex.metric==="time"?"TIME":"WEIGHT"}</span>
                 <div className="reorder-btns">
                   <button className="reorder-btn" disabled={i===0} onClick={()=>moveExercise(i,-1)}>▲</button>
                   <button className="reorder-btn" disabled={i===exercises.length-1} onClick={()=>moveExercise(i,1)}>▼</button>
@@ -294,6 +299,13 @@
                 <button onClick={()=>setExercises(exercises.filter(e=>e.id!==ex.id))} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 4px"}}>×</button>
               </div>
             ))}
+          </div>
+          <div style={{marginBottom:8}}>
+            <label className="form-label">Metric</label>
+            <div className="metric-toggle">
+              <button className={`metric-btn ${newMetric==="weight"?"active":""}`} onClick={()=>setNewMetric("weight")}>⚖ Weight + Reps</button>
+              <button className={`metric-btn ${newMetric==="time"?"active":""}`}   onClick={()=>setNewMetric("time")}>⏱ Time</button>
+            </div>
           </div>
           <div className="form-row" style={{alignItems:"flex-end"}}>
             <div className="form-group" style={{marginBottom:0}}>
@@ -342,7 +354,7 @@
 
   // ── Workout Modal ──────────────────────────────────────────────────────
   function WorkoutModal({ templates, templateId, editLog, onSave, onClose }) {
-    const today = new Date().toISOString().slice(0,10);
+    const today = localDateStr();
     const tmpl  = templates.find(t=>t.id===templateId)||templates[0];
 
     // Initialise from draft (autosave) or editLog or fresh
@@ -359,13 +371,16 @@
     const [date,       setDate]       = useState(init.date);
     const [exercises,  setExercises]  = useState(init.exercises);
     const [notes,      setNotes]      = useState(init.notes);
-    const [customName, setCustomName] = useState("");
-    const [showCustom, setShowCustom] = useState(false);
+    const [customName,   setCustomName]   = useState("");
+    const [customMetric, setCustomMetric] = useState("weight");
+    const [showCustom,   setShowCustom]   = useState(false);
     const [draftSaved, setDraftSaved] = useState(false);
+
+    const blankSet = (metric) => metric==="time" ? {mins:"",secs:""} : {weight:"",reps:""};
 
     // Autosave draft to localStorage on every change
     useEffect(() => {
-      if (editLog) return; // don't autosave when editing existing log
+      if (editLog) return;
       const draft = { templateId, date, exercises, notes, savedAt: Date.now() };
       localStorage.setItem(LS_DRAFT, JSON.stringify(draft));
       setDraftSaved(true);
@@ -375,11 +390,11 @@
 
     const clearDraft = () => localStorage.removeItem(LS_DRAFT);
 
-    const addExercise = (ex) => setExercises(p=>[...p, {...ex, id:ex.id+"-"+uid(), sets:[{weight:"",reps:""}]}]);
+    const addExercise = (ex) => setExercises(p=>[...p, {...ex, id:ex.id+"-"+uid(), sets:[blankSet(ex.metric||"weight")]}]);
     const addCustomExercise = () => {
       const name = customName.trim(); if(!name) return;
-      setExercises(p=>[...p, {id:uid(), name, sets:[{weight:"",reps:""}]}]);
-      setCustomName(""); setShowCustom(false);
+      setExercises(p=>[...p, {id:uid(), name, metric:customMetric, sets:[blankSet(customMetric)]}]);
+      setCustomName(""); setCustomMetric("weight"); setShowCustom(false);
     };
     const removeExercise = ei => setExercises(p=>p.filter((_,i)=>i!==ei));
     const updateSet = (ei,si,f,v) => setExercises(p=>p.map((ex,i)=>i!==ei?ex:{...ex,sets:ex.sets.map((s,j)=>j!==si?s:{...s,[f]:v})}));
@@ -441,15 +456,25 @@
               </div>
               <div style={{display:"flex",gap:8,marginBottom:4,paddingLeft:16}}>
                 <span className="set-label" style={{flex:"0 0 24px"}}>#</span>
-                <span className="set-label" style={{flex:1}}>LBS</span>
-                <span className="set-label" style={{flex:1}}>REPS</span>
+                {ex.metric==="time" ? <>
+                  <span className="set-label" style={{flex:1}}>MIN</span>
+                  <span className="set-label" style={{flex:1}}>SEC</span>
+                </> : <>
+                  <span className="set-label" style={{flex:1}}>LBS</span>
+                  <span className="set-label" style={{flex:1}}>REPS</span>
+                </>}
                 <span style={{width:28}}/>
               </div>
               {ex.sets.map((s,si)=>(
                 <div className="set-row" key={si}>
                   <span className="set-num">{si+1}</span>
-                  <input className="set-input" type="number" inputMode="decimal" placeholder="0" value={s.weight} onChange={e=>updateSet(ei,si,"weight",e.target.value)}/>
-                  <input className="set-input" type="number" inputMode="numeric" placeholder="0" value={s.reps}   onChange={e=>updateSet(ei,si,"reps",e.target.value)}/>
+                  {ex.metric==="time" ? <>
+                    <input className="set-input" type="number" inputMode="numeric" placeholder="0" value={s.mins||""} onChange={e=>updateSet(ei,si,"mins",e.target.value)}/>
+                    <input className="set-input" type="number" inputMode="numeric" placeholder="0" value={s.secs||""} onChange={e=>updateSet(ei,si,"secs",e.target.value)}/>
+                  </> : <>
+                    <input className="set-input" type="number" inputMode="decimal" placeholder="0" value={s.weight||""} onChange={e=>updateSet(ei,si,"weight",e.target.value)}/>
+                    <input className="set-input" type="number" inputMode="numeric" placeholder="0" value={s.reps||""}   onChange={e=>updateSet(ei,si,"reps",e.target.value)}/>
+                  </>}
                   <button onClick={()=>removeSet(ei,si)} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:20,lineHeight:1,width:28,textAlign:"center"}}>×</button>
                 </div>
               ))}
@@ -476,10 +501,16 @@
                   <span style={{color:"var(--accent)",fontSize:18,lineHeight:1}}>+</span>
                 </div>
               ) : (
-                <div style={{background:"var(--surface2)",border:"1px solid var(--accent)",borderRadius:8,padding:10,display:"flex",gap:8,alignItems:"center"}}>
-                  <input className="form-input" style={{marginBottom:0,flex:1,fontSize:14,padding:"7px 10px"}} placeholder="e.g. Dumbbell Bench Press" value={customName} onChange={e=>setCustomName(e.target.value)} onKeyDown={e=>{ if(e.key==="Enter")addCustomExercise(); if(e.key==="Escape"){setShowCustom(false);setCustomName("");} }} autoFocus/>
-                  <button className="btn btn-green btn-sm" style={{flexShrink:0}} onClick={addCustomExercise}>Add</button>
-                  <button onClick={()=>{setShowCustom(false);setCustomName("");}} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 2px"}}>×</button>
+                <div style={{background:"var(--surface2)",border:"1px solid var(--accent)",borderRadius:8,padding:10,display:"flex",flexDirection:"column",gap:8}}>
+                  <div style={{display:"flex",gap:8,alignItems:"center"}}>
+                    <input className="form-input" style={{marginBottom:0,flex:1,fontSize:14,padding:"7px 10px"}} placeholder="e.g. Dumbbell Bench Press" value={customName} onChange={e=>setCustomName(e.target.value)} onKeyDown={e=>{ if(e.key==="Enter")addCustomExercise(); if(e.key==="Escape"){setShowCustom(false);setCustomName("");} }} autoFocus/>
+                    <button onClick={()=>{setShowCustom(false);setCustomName("");setCustomMetric("weight");}} style={{background:"none",border:"none",color:"var(--muted)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 2px"}}>×</button>
+                  </div>
+                  <div className="metric-toggle">
+                    <button className={`metric-btn ${customMetric==="weight"?"active":""}`} onClick={()=>setCustomMetric("weight")}>⚖ Weight + Reps</button>
+                    <button className={`metric-btn ${customMetric==="time"?"active":""}`}   onClick={()=>setCustomMetric("time")}>⏱ Time</button>
+                  </div>
+                  <button className="btn btn-green btn-sm" style={{alignSelf:"flex-end"}} onClick={addCustomExercise}>Add</button>
                 </div>
               )}
             </div>
@@ -504,11 +535,19 @@
   }
 
   // ── Helpers ────────────────────────────────────────────────────────────
+  function localDateStr(d) {
+    // Returns YYYY-MM-DD in the user's local timezone (handles EDT/EST correctly)
+    const date = d || new Date();
+    return date.toLocaleDateString("en-CA"); // en-CA gives YYYY-MM-DD format
+  }
+
   function formatDate(iso) {
-    const d=new Date(iso+"T00:00:00"), ts=new Date().toISOString().slice(0,10);
-    const y=new Date(); y.setDate(y.getDate()-1);
-    if(iso===ts) return "Today";
-    if(iso===y.toISOString().slice(0,10)) return "Yesterday";
+    const d = new Date(iso+"T00:00:00"); // local midnight
+    const todayStr     = localDateStr();
+    const yest         = new Date(); yest.setDate(yest.getDate()-1);
+    const yesterdayStr = localDateStr(yest);
+    if (iso===todayStr)     return "Today";
+    if (iso===yesterdayStr) return "Yesterday";
     return d.toLocaleDateString("en-US",{weekday:"long",month:"short",day:"numeric"});
   }
 
@@ -693,7 +732,12 @@
                               <div key={ex.id}>
                                 <div className="log-exercise-name">{ex.name}</div>
                                 <div className="log-sets">
-                                  {(ex.sets||[]).map((s,i)=><span className="log-set-chip" key={i}>{s.weight}lbs × {s.reps}</span>)}
+                                  {(ex.sets||[]).map((s,i)=>{
+                                    const chip = ex.metric==="time"
+                                      ? `${s.mins||0}:${String(s.secs||0).padStart(2,"0")}`
+                                      : `${s.weight}lbs × ${s.reps}`;
+                                    return <span className="log-set-chip" key={i}>{chip}</span>;
+                                  })}
                                   {(!ex.sets||!ex.sets.length)&&<span style={{fontSize:12,color:"var(--muted)"}}>No sets logged</span>}
                                 </div>
                               </div>
