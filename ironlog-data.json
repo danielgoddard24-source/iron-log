@@ -155,6 +155,25 @@
   ],
   "logs": [
     {
+      "id": "gnp5zhm",
+      "templateId": "ckrzpiw",
+      "date": "2026-04-29",
+      "exercises": [
+        {
+          "id": "12srsd5-unnbmb4",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "7",
+              "secs": "30"
+            }
+          ]
+        }
+      ],
+      "notes": "8.5mph"
+    },
+    {
       "id": "yaeqizr",
       "templateId": "t1",
       "date": "2026-04-29",
