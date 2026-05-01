@@ -160,6 +160,93 @@
   ],
   "logs": [
     {
+      "id": "ubpr4fi",
+      "templateId": "t2",
+      "date": "2026-05-01",
+      "exercises": [
+        {
+          "id": "rflm7w5",
+          "name": "Pull-Ups - Assisted",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "110",
+              "reps": "8"
+            },
+            {
+              "weight": "99",
+              "reps": "7"
+            },
+            {
+              "weight": "99",
+              "reps": "5"
+            },
+            {
+              "weight": "99",
+              "reps": "4"
+            }
+          ]
+        },
+        {
+          "id": "k5f5rtu",
+          "name": "Seated Cable Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "90",
+              "reps": "9"
+            },
+            {
+              "weight": "120",
+              "reps": "7"
+            },
+            {
+              "weight": "120",
+              "reps": "9"
+            }
+          ]
+        },
+        {
+          "id": "e8-uh2lda2",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "20",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "12"
+            },
+            {
+              "weight": "25",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "9oitxue",
+          "name": "Bent Over Rear Delt Flyes - Barbells",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "15",
+              "reps": "10"
+            },
+            {
+              "weight": "15",
+              "reps": "10"
+            },
+            {
+              "weight": "10",
+              "reps": "12"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "81czrvu",
       "templateId": "ckrzpiw",
       "date": "2026-05-01",
