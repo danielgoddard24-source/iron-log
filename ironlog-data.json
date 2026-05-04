@@ -160,6 +160,28 @@
   ],
   "logs": [
     {
+      "id": "ulitssd",
+      "templateId": "t3",
+      "date": "2026-05-04",
+      "exercises": [
+        {
+          "id": "e9-tuke2d2",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "185",
+              "reps": "7"
+            }
+          ]
+        }
+      ],
+      "notes": "On second squat set, felt suddenly contraction in mid right back. Not excruciating but like a massive knot"
+    },
+    {
       "id": "s2wdb1u",
       "templateId": "ckrzpiw",
       "date": "2026-05-04",
