@@ -160,6 +160,68 @@
   ],
   "logs": [
     {
+      "id": "3wbuzy8",
+      "templateId": "t1",
+      "date": "2026-05-06",
+      "exercises": [
+        {
+          "id": "zlx270z-440yezi",
+          "name": "Bench Press - Barbell",
+          "sets": [
+            {
+              "weight": "45",
+              "reps": "12"
+            },
+            {
+              "weight": "135",
+              "reps": "12"
+            },
+            {
+              "weight": "165",
+              "reps": "10"
+            },
+            {
+              "weight": "175",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "65wtx6e-twm70r1",
+          "name": "Pec Flys - Cables",
+          "sets": [
+            {
+              "weight": "88",
+              "reps": "10"
+            },
+            {
+              "weight": "99",
+              "reps": "10"
+            },
+            {
+              "weight": "99",
+              "reps": "10"
+            },
+            {
+              "weight": "77",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "e2-flc08ko",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "90of74d",
       "templateId": "ckrzpiw",
       "date": "2026-05-06",
