@@ -160,6 +160,65 @@
   ],
   "logs": [
     {
+      "id": "tyu6cz3",
+      "templateId": "j888vkv",
+      "date": "2026-05-06",
+      "exercises": [
+        {
+          "id": "r1j76ok-82wgc9l",
+          "name": "Sit Up",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "zmz58cr-1cmt3w6",
+          "name": "Tow Touch",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "40"
+            }
+          ]
+        },
+        {
+          "id": "yvezjdh-7967goh",
+          "name": "Side Crunch",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "40"
+            }
+          ]
+        },
+        {
+          "id": "77sp9ll-krxwmro",
+          "name": "Superman",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "5tbould-voqcync",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "3wbuzy8",
       "templateId": "t1",
       "date": "2026-05-06",
