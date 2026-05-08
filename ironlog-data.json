@@ -161,6 +161,88 @@
   ],
   "logs": [
     {
+      "id": "4g2bcdz",
+      "templateId": "j888vkv",
+      "date": "2026-05-08",
+      "exercises": [
+        {
+          "id": "r1j76ok-0dubedc",
+          "name": "Sit Up",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "2tfsw9a-04n0esp",
+          "name": "Toe Touches",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "45"
+            }
+          ]
+        },
+        {
+          "id": "2t5n5oy",
+          "name": "Side ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "z26o1x1",
+          "name": "Side to sides",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "77sp9ll-d0qb5xv",
+          "name": "Superman",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "6yqeiqj-q5a1swr",
+          "name": "Bike Crunch",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "5tbould-cf8c3wf",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "yvays76",
       "templateId": "t2",
       "date": "2026-05-08",
