@@ -250,6 +250,25 @@
               "reps": "12"
             }
           ]
+        },
+        {
+          "id": "at1tml7",
+          "name": "Back extensions",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            },
+            {
+              "weight": "",
+              "reps": "19"
+            },
+            {
+              "weight": "",
+              "reps": "18"
+            }
+          ]
         }
       ],
       "notes": ""
