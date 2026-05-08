@@ -161,6 +161,51 @@
   ],
   "logs": [
     {
+      "id": "yvays76",
+      "templateId": "t2",
+      "date": "2026-05-08",
+      "exercises": [
+        {
+          "id": "e6-ojin3ja",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "99",
+              "reps": "8"
+            },
+            {
+              "weight": "88",
+              "reps": "7"
+            },
+            {
+              "weight": "88",
+              "reps": "3"
+            }
+          ]
+        },
+        {
+          "id": "p4xxibd",
+          "name": "Seated Close Grip Cable Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "90",
+              "reps": "10"
+            },
+            {
+              "weight": "120",
+              "reps": "9"
+            },
+            {
+              "weight": "120",
+              "reps": "9"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "hzms0qw",
       "templateId": "ckrzpiw",
       "date": "2026-05-08",
