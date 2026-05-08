@@ -122,8 +122,9 @@
           "name": "Sit Up"
         },
         {
-          "id": "zmz58cr",
-          "name": "Tow Touch"
+          "id": "2tfsw9a",
+          "name": "Toe Touches",
+          "metric": "weight"
         },
         {
           "id": "c0h9mkn",
