@@ -160,6 +160,25 @@
   ],
   "logs": [
     {
+      "id": "hzms0qw",
+      "templateId": "ckrzpiw",
+      "date": "2026-05-08",
+      "exercises": [
+        {
+          "id": "12srsd5-1ts00xn",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "7",
+              "secs": ""
+            }
+          ]
+        }
+      ],
+      "notes": "8.8mph to 1.00mi"
+    },
+    {
       "id": "tyu6cz3",
       "templateId": "j888vkv",
       "date": "2026-05-06",
