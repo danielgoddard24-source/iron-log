@@ -199,6 +199,39 @@
             {
               "weight": "120",
               "reps": "9"
+            },
+            {
+              "weight": "110",
+              "reps": "9"
+            }
+          ]
+        },
+        {
+          "id": "e8-owk1xln",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "50",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "0bstslr",
+          "name": "Lateral rear delt raises - dumbbell",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "20",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "12"
             }
           ]
         }
