@@ -161,6 +161,25 @@
   ],
   "logs": [
     {
+      "id": "vxp9h01",
+      "templateId": "ckrzpiw",
+      "date": "2026-05-12",
+      "exercises": [
+        {
+          "id": "12srsd5-7erfea2",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "5",
+              "secs": "10"
+            }
+          ]
+        }
+      ],
+      "notes": "9.0mph to 0.75mi. Then 3.2mph\nDifficulty breathing, like running in winter. Could be allergies partly"
+    },
+    {
       "id": "4g2bcdz",
       "templateId": "j888vkv",
       "date": "2026-05-08",
