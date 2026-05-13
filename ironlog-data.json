@@ -161,6 +161,122 @@
   ],
   "logs": [
     {
+      "id": "u3e3h2p",
+      "templateId": "t1",
+      "date": "2026-05-13",
+      "exercises": [
+        {
+          "id": "zlx270z-mduzjqr",
+          "name": "Bench Press - Barbell",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "12"
+            },
+            {
+              "weight": "165",
+              "reps": "10"
+            },
+            {
+              "weight": "185",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "g3j6dut-v1l6emc",
+          "name": "Bench Press - Dumbbells",
+          "sets": [
+            {
+              "weight": "160",
+              "reps": "7"
+            },
+            {
+              "weight": "160",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "b4e8o5m-8thd9ww",
+          "name": "Pec Flys - Dumbbells",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "40",
+              "reps": "9"
+            },
+            {
+              "weight": "40",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "e2-ebcwk4d",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "100",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "7"
+            },
+            {
+              "weight": "110",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e3-bhoqw77",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "20",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "e4-5hhj3ba",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "187",
+              "reps": "10"
+            },
+            {
+              "weight": "198",
+              "reps": "11"
+            },
+            {
+              "weight": "198",
+              "reps": "10"
+            },
+            {
+              "weight": "198",
+              "reps": "9"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "o12euj6",
       "templateId": "ckrzpiw",
       "date": "2026-05-13",
