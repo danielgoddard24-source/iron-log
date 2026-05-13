@@ -161,6 +161,99 @@
   ],
   "logs": [
     {
+      "id": "rsyo3vh",
+      "templateId": "j888vkv",
+      "date": "2026-05-13",
+      "exercises": [
+        {
+          "id": "5tbould-9qtkpgw",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "r1j76ok-dp3a6ej",
+          "name": "Sit Up",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "2tfsw9a-uo3lmxn",
+          "name": "Toe Touches",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "40"
+            }
+          ]
+        },
+        {
+          "id": "efs2hfa",
+          "name": "Side ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "40"
+            }
+          ]
+        },
+        {
+          "id": "rmfo2w7",
+          "name": "Side to sides",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "77sp9ll-wnd70qy",
+          "name": "Superman",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "6yqeiqj-kgsaw9c",
+          "name": "Bike Crunch",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "5tbould-w214l1i",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "17"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "u3e3h2p",
       "templateId": "t1",
       "date": "2026-05-13",
