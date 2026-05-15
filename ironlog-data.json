@@ -161,6 +161,25 @@
   ],
   "logs": [
     {
+      "id": "8g88t7c",
+      "templateId": "ckrzpiw",
+      "date": "2026-05-15",
+      "exercises": [
+        {
+          "id": "12srsd5-k2s8vdz",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "7",
+              "secs": "10"
+            }
+          ]
+        }
+      ],
+      "notes": "8.6mph to 1.0mi. Pain in right foot inside of arch"
+    },
+    {
       "id": "rsyo3vh",
       "templateId": "j888vkv",
       "date": "2026-05-13",
