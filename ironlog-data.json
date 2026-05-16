@@ -51,12 +51,42 @@
           "name": "Pull-Ups"
         },
         {
+          "id": "6zcoyrq",
+          "name": "Pull-Downs",
+          "metric": "weight"
+        },
+        {
+          "id": "wm0w8wz",
+          "name": "Seated Close Grip Cable Rows",
+          "metric": "weight"
+        },
+        {
+          "id": "zpeqmnl",
+          "name": "Dumbbell Rows",
+          "metric": "weight"
+        },
+        {
           "id": "e7",
           "name": "Barbell Row"
         },
         {
           "id": "e8",
           "name": "Bicep Curls"
+        },
+        {
+          "id": "d017nna",
+          "name": "Rear Delt Flys",
+          "metric": "weight"
+        },
+        {
+          "id": "1m3a1rk",
+          "name": "Bent Over Rear Delt Raises",
+          "metric": "weight"
+        },
+        {
+          "id": "33mlbov",
+          "name": "Shrugs",
+          "metric": "weight"
         }
       ]
     },
