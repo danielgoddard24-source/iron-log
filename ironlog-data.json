@@ -191,6 +191,35 @@
   ],
   "logs": [
     {
+      "id": "bktedsb",
+      "templateId": "j888vkv",
+      "date": "2026-05-20",
+      "exercises": [
+        {
+          "id": "r1j76ok-7kkxz8v",
+          "name": "Sit Up",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "2tfsw9a-3bgm4nu",
+          "name": "Toe Touches",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "40"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "nszylyi",
       "templateId": "t1",
       "date": "2026-05-20",
