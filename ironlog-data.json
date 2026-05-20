@@ -191,6 +191,25 @@
   ],
   "logs": [
     {
+      "id": "t1u3ym7",
+      "templateId": "ckrzpiw",
+      "date": "2026-05-20",
+      "exercises": [
+        {
+          "id": "12srsd5-31vsaft",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "6",
+              "secs": "52"
+            }
+          ]
+        }
+      ],
+      "notes": "9.0mph to 1.0mi. Hard but strong. Calves tight at start from yesterday "
+    },
+    {
       "id": "50dkn4j",
       "templateId": "t3",
       "date": "2026-05-19",
