@@ -215,6 +215,59 @@
               "reps": "40"
             }
           ]
+        },
+        {
+          "id": "s1sozvc",
+          "name": "Side ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "yyauvq3",
+          "name": "Side to sides",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "77sp9ll-n63x4uz",
+          "name": "Superman",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "25"
+            }
+          ]
+        },
+        {
+          "id": "5tbould-hethwe2",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
+        },
+        {
+          "id": "6yqeiqj-bskij6i",
+          "name": "Bike Crunch",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "20"
+            }
+          ]
         }
       ],
       "notes": ""
