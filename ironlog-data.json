@@ -191,6 +191,122 @@
   ],
   "logs": [
     {
+      "id": "zloy3xv",
+      "templateId": "t2",
+      "date": "2026-05-22",
+      "exercises": [
+        {
+          "id": "e6-3mv4h58",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "99",
+              "reps": "9"
+            },
+            {
+              "weight": "88",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "6zcoyrq-3t3bjms",
+          "name": "Pull-Downs",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "140",
+              "reps": "9"
+            },
+            {
+              "weight": "150",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "zpeqmnl-9vobgv9",
+          "name": "Dumbbell Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "50",
+              "reps": "8"
+            },
+            {
+              "weight": "55",
+              "reps": "7"
+            },
+            {
+              "weight": "55",
+              "reps": "8"
+            },
+            {
+              "weight": "55",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e8-w86mrg5",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "50",
+              "reps": "10"
+            },
+            {
+              "weight": "50",
+              "reps": "7"
+            }
+          ]
+        },
+        {
+          "id": "1m3a1rk-nsytg96",
+          "name": "Bent Over Rear Delt Raises",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "20",
+              "reps": "12"
+            }
+          ]
+        },
+        {
+          "id": "33mlbov-6wd88e4",
+          "name": "Shrugs",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "90",
+              "reps": "12"
+            },
+            {
+              "weight": "120",
+              "reps": "15"
+            },
+            {
+              "weight": "120",
+              "reps": "15"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "hxzqx9n",
       "templateId": "ckrzpiw",
       "date": "2026-05-22",
