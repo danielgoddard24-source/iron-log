@@ -191,6 +191,67 @@
   ],
   "logs": [
     {
+      "id": "990edma",
+      "templateId": "j888vkv",
+      "date": "2026-05-25",
+      "exercises": [
+        {
+          "id": "5tbould-9lut38i",
+          "name": "Push Ups",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "r1j76ok-4j69wpi",
+          "name": "Sit Up",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "2tfsw9a-njkw8gs",
+          "name": "Toe Touches",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "2tfsw9a-ig7ns4f",
+          "name": "Toe Touches",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "yvezjdh-b5lcftq",
+          "name": "Side Crunch",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "zloy3xv",
       "templateId": "t2",
       "date": "2026-05-22",
