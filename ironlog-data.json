@@ -191,6 +191,205 @@
   ],
   "logs": [
     {
+      "id": "rbp8y33",
+      "templateId": "t1",
+      "date": "2026-05-27",
+      "exercises": [
+        {
+          "id": "g3j6dut-e7gtmpo",
+          "name": "Bench Press - Dumbbells",
+          "sets": [
+            {
+              "weight": "110",
+              "reps": "15"
+            },
+            {
+              "weight": "140",
+              "reps": "8"
+            },
+            {
+              "weight": "160",
+              "reps": "8"
+            },
+            {
+              "weight": "170",
+              "reps": "5"
+            },
+            {
+              "weight": "170",
+              "reps": "4"
+            }
+          ]
+        },
+        {
+          "id": "b4e8o5m-muvik0p",
+          "name": "Pec Flys - Dumbbells",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "8"
+            },
+            {
+              "weight": "40",
+              "reps": "8"
+            },
+            {
+              "weight": "50",
+              "reps": "8"
+            },
+            {
+              "weight": "50",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e2-7wz9l6p",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "100",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "5"
+            },
+            {
+              "weight": "90",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "e3-ee01wgu",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "20",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "10"
+            },
+            {
+              "weight": "20",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e4-1rmz6qz",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "198",
+              "reps": "12"
+            },
+            {
+              "weight": "198",
+              "reps": "10"
+            },
+            {
+              "weight": "187",
+              "reps": "8"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "sh8u0ve",
+      "templateId": "ckrzpiw",
+      "date": "2026-05-27",
+      "exercises": [
+        {
+          "id": "12srsd5-upzrqxq",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "7",
+              "secs": "08"
+            }
+          ]
+        }
+      ],
+      "notes": "8.7mph to 1.0mi"
+    },
+    {
+      "id": "lmn9ga8",
+      "templateId": "t3",
+      "date": "2026-05-25",
+      "exercises": [
+        {
+          "id": "e9-yaxyn0x",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "185",
+              "reps": "7"
+            },
+            {
+              "weight": "225",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "e11-e66y5cp",
+          "name": "Leg Press",
+          "sets": [
+            {
+              "weight": "360",
+              "reps": "8"
+            },
+            {
+              "weight": "360",
+              "reps": "8"
+            },
+            {
+              "weight": "360",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e12-zx5u76j",
+          "name": "Calf Raises",
+          "sets": [
+            {
+              "weight": "360",
+              "reps": "15"
+            },
+            {
+              "weight": "360",
+              "reps": "15"
+            },
+            {
+              "weight": "360",
+              "reps": "15"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "5rhfzv7",
       "templateId": "ckrzpiw",
       "date": "2026-05-25",
