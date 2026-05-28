@@ -191,6 +191,115 @@
   ],
   "logs": [
     {
+      "id": "zh53aee",
+      "templateId": "t2",
+      "date": "2026-05-28",
+      "exercises": [
+        {
+          "id": "e6-rtzqh7s",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "7"
+            },
+            {
+              "weight": "88",
+              "reps": "6"
+            },
+            {
+              "weight": "88",
+              "reps": "4"
+            },
+            {
+              "weight": "110",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "zpeqmnl-sl2jl3h",
+          "name": "Dumbbell Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "50",
+              "reps": "8"
+            },
+            {
+              "weight": "55",
+              "reps": "8"
+            },
+            {
+              "weight": "55",
+              "reps": "10"
+            },
+            {
+              "weight": "55",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e8-b00hpnc",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "50",
+              "reps": "10"
+            },
+            {
+              "weight": "60",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "1m3a1rk-bl04pka",
+          "name": "Bent Over Rear Delt Raises",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "33mlbov-4s7wsqq",
+          "name": "Shrugs",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "120",
+              "reps": "15"
+            },
+            {
+              "weight": "140",
+              "reps": "15"
+            },
+            {
+              "weight": "140",
+              "reps": "15"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "jk0prxd",
       "templateId": "ckrzpiw",
       "date": "2026-05-28",
