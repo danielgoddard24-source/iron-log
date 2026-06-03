@@ -191,6 +191,74 @@
   ],
   "logs": [
     {
+      "id": "kv2hod8",
+      "templateId": "t1",
+      "date": "2026-06-02",
+      "exercises": [
+        {
+          "id": "zlx270z-rojxdcw",
+          "name": "Bench Press - Barbell",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "g3j6dut-gw3vm8h",
+          "name": "Bench Press - Dumbbells",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "b4e8o5m-8ve7w20",
+          "name": "Pec Flys - Dumbbells",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e2-mw1b1ri",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e3-zuvtp3h",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        },
+        {
+          "id": "e4-pc1r1je",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "",
+              "reps": ""
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "oyo8zwg",
       "templateId": "ckrzpiw",
       "date": "2026-06-02",
