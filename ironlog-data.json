@@ -191,6 +191,92 @@
   ],
   "logs": [
     {
+      "id": "hcuhhyr",
+      "templateId": "t2",
+      "date": "2026-06-04",
+      "exercises": [
+        {
+          "id": "e6-qxrdjyo",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "7"
+            },
+            {
+              "weight": "",
+              "reps": "5"
+            },
+            {
+              "weight": "99",
+              "reps": "7"
+            },
+            {
+              "weight": "99",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "wm0w8wz-mg5tbn7",
+          "name": "Seated Close Grip Cable Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "110",
+              "reps": "10"
+            },
+            {
+              "weight": "110",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e8-z4ruztr",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "50",
+              "reps": "10"
+            },
+            {
+              "weight": "50",
+              "reps": "11"
+            }
+          ]
+        },
+        {
+          "id": "1m3a1rk-9pe94rw",
+          "name": "Bent Over Rear Delt Raises",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "lxe96pm",
       "templateId": "ckrzpiw",
       "date": "2026-06-04",
