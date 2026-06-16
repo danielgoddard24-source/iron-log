@@ -191,6 +191,25 @@
   ],
   "logs": [
     {
+      "id": "erlzcyx",
+      "templateId": "ckrzpiw",
+      "date": "2026-06-13",
+      "exercises": [
+        {
+          "id": "12srsd5-a0p1dmu",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "",
+              "secs": ""
+            }
+          ]
+        }
+      ],
+      "notes": "Ran outside in the evening"
+    },
+    {
       "id": "eglvwx2",
       "templateId": "t1",
       "date": "2026-06-10",
