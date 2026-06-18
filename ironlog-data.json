@@ -191,6 +191,88 @@
   ],
   "logs": [
     {
+      "id": "lcmfbda",
+      "templateId": "t2",
+      "date": "2026-06-17",
+      "exercises": [
+        {
+          "id": "e6-31a8map",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "7"
+            },
+            {
+              "weight": "",
+              "reps": "5"
+            },
+            {
+              "weight": "",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "wm0w8wz-8wepz2u",
+          "name": "Seated Close Grip Cable Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "120",
+              "reps": "9"
+            },
+            {
+              "weight": "130",
+              "reps": "8"
+            },
+            {
+              "weight": "130",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "e8-3bxllc8",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "10"
+            },
+            {
+              "weight": "50",
+              "reps": "12"
+            },
+            {
+              "weight": "60",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "d017nna-p74mbj5",
+          "name": "Rear Delt Flys",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "12"
+            },
+            {
+              "weight": "30",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "10"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "yuuvtpc",
       "templateId": "ckrzpiw",
       "date": "2026-06-17",
