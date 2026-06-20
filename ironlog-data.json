@@ -191,6 +191,25 @@
   ],
   "logs": [
     {
+      "id": "subkde3",
+      "templateId": "ckrzpiw",
+      "date": "2026-06-19",
+      "exercises": [
+        {
+          "id": "12srsd5-889qqal",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "6",
+              "secs": "52"
+            }
+          ]
+        }
+      ],
+      "notes": "9.0mph to 1.0mi"
+    },
+    {
       "id": "lcmfbda",
       "templateId": "t2",
       "date": "2026-06-17",
