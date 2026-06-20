@@ -191,6 +191,91 @@
   ],
   "logs": [
     {
+      "id": "lmcz39c",
+      "templateId": "t3",
+      "date": "2026-06-19",
+      "exercises": [
+        {
+          "id": "e9-w41jyts",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "185",
+              "reps": "8"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            },
+            {
+              "weight": "245",
+              "reps": "3"
+            }
+          ]
+        },
+        {
+          "id": "q8hki96-8ccjqz8",
+          "name": "Lunges",
+          "sets": [
+            {
+              "weight": "60",
+              "reps": "16"
+            },
+            {
+              "weight": "60",
+              "reps": "16"
+            },
+            {
+              "weight": "60",
+              "reps": "16"
+            }
+          ]
+        },
+        {
+          "id": "e10-19fdup5",
+          "name": "Romanian Deadlift",
+          "sets": [
+            {
+              "weight": "60",
+              "reps": "10"
+            },
+            {
+              "weight": "100",
+              "reps": "11"
+            }
+          ]
+        },
+        {
+          "id": "vqvkmfm",
+          "name": "Back extensions",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "10",
+              "reps": "15"
+            },
+            {
+              "weight": "10",
+              "reps": "12"
+            },
+            {
+              "weight": "10",
+              "reps": "12"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "subkde3",
       "templateId": "ckrzpiw",
       "date": "2026-06-19",
