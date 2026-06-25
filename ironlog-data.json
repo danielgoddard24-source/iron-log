@@ -191,6 +191,108 @@
   ],
   "logs": [
     {
+      "id": "9jqya43",
+      "templateId": "t1",
+      "date": "2026-06-22",
+      "exercises": [
+        {
+          "id": "zlx270z-cedqdd9",
+          "name": "Bench Press - Barbell",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "12"
+            },
+            {
+              "weight": "185",
+              "reps": "7"
+            },
+            {
+              "weight": "195",
+              "reps": "5"
+            },
+            {
+              "weight": "205",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "65wtx6e-nmf84bt",
+          "name": "Pec Flys - Cables",
+          "sets": [
+            {
+              "weight": "121",
+              "reps": "8"
+            },
+            {
+              "weight": "121",
+              "reps": "8"
+            },
+            {
+              "weight": "121",
+              "reps": "7"
+            }
+          ]
+        },
+        {
+          "id": "e2-po9f0yf",
+          "name": "Overhead Press",
+          "sets": [
+            {
+              "weight": "100",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "8"
+            },
+            {
+              "weight": "110",
+              "reps": "6"
+            }
+          ]
+        },
+        {
+          "id": "e3-z5g3x3i",
+          "name": "Lateral Raises",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "10"
+            },
+            {
+              "weight": "30",
+              "reps": "8"
+            },
+            {
+              "weight": "30",
+              "reps": "10"
+            }
+          ]
+        },
+        {
+          "id": "e4-ana52n8",
+          "name": "Tricep Pushdowns",
+          "sets": [
+            {
+              "weight": "198",
+              "reps": "15"
+            },
+            {
+              "weight": "198",
+              "reps": "10"
+            },
+            {
+              "weight": "176",
+              "reps": "2"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "jb68kmt",
       "templateId": "ckrzpiw",
       "date": "2026-06-22",
