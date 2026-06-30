@@ -191,6 +191,54 @@
   ],
   "logs": [
     {
+      "id": "8qa9vzb",
+      "templateId": "t3",
+      "date": "2026-06-26",
+      "exercises": [
+        {
+          "id": "e9-tqirt7y",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "205",
+              "reps": "8"
+            },
+            {
+              "weight": "225",
+              "reps": "6"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "q8hki96-w4151mr",
+          "name": "Lunges",
+          "sets": [
+            {
+              "weight": "60",
+              "reps": "16"
+            },
+            {
+              "weight": "60",
+              "reps": "16"
+            },
+            {
+              "weight": "60",
+              "reps": "16"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "ygmlofo",
       "templateId": "ckrzpiw",
       "date": "2026-06-26",
