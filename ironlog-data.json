@@ -191,6 +191,73 @@
   ],
   "logs": [
     {
+      "id": "3b9o3xn",
+      "templateId": "t3",
+      "date": "2026-07-07",
+      "exercises": [
+        {
+          "id": "e9-ke4j6ka",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "185",
+              "reps": "8"
+            },
+            {
+              "weight": "225",
+              "reps": "6"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            }
+          ]
+        },
+        {
+          "id": "q8hki96-hinomui",
+          "name": "Lunges",
+          "sets": [
+            {
+              "weight": "60",
+              "reps": "14"
+            },
+            {
+              "weight": "60",
+              "reps": "14"
+            },
+            {
+              "weight": "60",
+              "reps": "12"
+            }
+          ]
+        },
+        {
+          "id": "i0oudev",
+          "name": "Lower back extensions",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "14"
+            },
+            {
+              "weight": "10",
+              "reps": "12"
+            },
+            {
+              "weight": "10",
+              "reps": "12"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "lkwhw2j",
       "templateId": "ckrzpiw",
       "date": "2026-07-07",
