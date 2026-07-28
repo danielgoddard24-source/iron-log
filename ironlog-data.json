@@ -191,6 +191,36 @@
   ],
   "logs": [
     {
+      "id": "9ce9ew3",
+      "templateId": "t3",
+      "date": "2026-07-27",
+      "exercises": [
+        {
+          "id": "e9-0zcqu64",
+          "name": "Squat",
+          "sets": [
+            {
+              "weight": "135",
+              "reps": "9"
+            },
+            {
+              "weight": "205",
+              "reps": "7"
+            },
+            {
+              "weight": "225",
+              "reps": "5"
+            },
+            {
+              "weight": "225",
+              "reps": "3"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "9n3k2bm",
       "templateId": "ckrzpiw",
       "date": "2026-07-27",
