@@ -191,6 +191,25 @@
   ],
   "logs": [
     {
+      "id": "w8kqa7o",
+      "templateId": "ckrzpiw",
+      "date": "2026-07-29",
+      "exercises": [
+        {
+          "id": "12srsd5-1nh3cdz",
+          "name": "Run",
+          "metric": "time",
+          "sets": [
+            {
+              "mins": "6",
+              "secs": "30"
+            }
+          ]
+        }
+      ],
+      "notes": "9.3mph but big cramps in right side made me stop running twice"
+    },
+    {
       "id": "9ce9ew3",
       "templateId": "t3",
       "date": "2026-07-27",
