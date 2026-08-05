@@ -191,6 +191,103 @@
   ],
   "logs": [
     {
+      "id": "0eefb87",
+      "templateId": "t2",
+      "date": "2026-08-04",
+      "exercises": [
+        {
+          "id": "e6-84ok5i7",
+          "name": "Pull-Ups",
+          "sets": [
+            {
+              "weight": "",
+              "reps": "7"
+            },
+            {
+              "weight": "",
+              "reps": "6"
+            },
+            {
+              "weight": "",
+              "reps": "3"
+            }
+          ]
+        },
+        {
+          "id": "6zcoyrq-evokmt7",
+          "name": "Pull-Downs",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "165",
+              "reps": "6"
+            },
+            {
+              "weight": "135",
+              "reps": "8"
+            },
+            {
+              "weight": "135",
+              "reps": "8"
+            }
+          ]
+        },
+        {
+          "id": "zpeqmnl-ebwksdv",
+          "name": "Dumbbell Rows",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "45",
+              "reps": "12"
+            },
+            {
+              "weight": "45",
+              "reps": "12"
+            }
+          ]
+        },
+        {
+          "id": "e8-o13oxuz",
+          "name": "Bicep Curls",
+          "sets": [
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "40",
+              "reps": "12"
+            },
+            {
+              "weight": "40",
+              "reps": "12"
+            }
+          ]
+        },
+        {
+          "id": "1m3a1rk-n2prf3z",
+          "name": "Bent Over Rear Delt Raises",
+          "metric": "weight",
+          "sets": [
+            {
+              "weight": "30",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "12"
+            },
+            {
+              "weight": "20",
+              "reps": "12"
+            }
+          ]
+        }
+      ],
+      "notes": ""
+    },
+    {
       "id": "52tzhd3",
       "templateId": "ckrzpiw",
       "date": "2026-08-04",
